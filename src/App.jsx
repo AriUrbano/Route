@@ -1,15 +1,20 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from "./Componentes/Home"
+import Home from "./assets/Componentes/Home"
 
 const App = () =>  {
   return (
    <>
    <BrowserRouter>
    <Routes>
-    <Route path='/'></Route>
-   </Routes>
+    <Route path='/' element={<Layout/>}></Route>
+    <Route path='/Home' element= {<Home/>}></Route>
+    <Route path='/persona/:id' element = {<DetallePersona/>}></Route>
+    <Route path='/estadistica' element = {<Estadisticas/>}> </Route>
+    <Route path='/contacto' element = {<Contacto/>}> </Route>
+    </Routes>
    </BrowserRouter>
+   
   </>
   )
 }

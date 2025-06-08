@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import './Error.css';
 
-const NotFound = () => {
+const Error = () => {
   return (
     <div className="not-found-container">
       <h1>404</h1>
-      <p>No encontrado</p>
+      <p>No encontramos lo que buscás 😕</p>
       <Link to="/" className="btn-home">
         Volver al inicio
       </Link>
@@ -13,4 +13,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default Error;

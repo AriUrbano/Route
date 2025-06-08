@@ -3,22 +3,18 @@ import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav className="sanlorenzo-navbar">
       <div className="navbar-container">
         <Link to="/" className="navbar-brand">
-          Directorio
+          <span className="logo-azul">DIRECTORIO</span>
+          <span className="logo-rojo">DE PERSONAS</span>
         </Link>
-        <ul className="navbar-menu">
-          <li>
-            <Link to="/home">Inicio</Link>
-          </li>
-          <li>
-            <Link to="/estadisticas">Estadísticas</Link>
-          </li>
-          <li>
-            <Link to="/contacto">Contacto</Link>
-          </li>
-        </ul>
+        
+        <div className="navbar-menu">
+          <Link to="/" className="nav-link">Inicio</Link>
+          <Link to="/estadisticas" className="nav-link">Estadísticas</Link>
+          <Link to="/contacto" className="nav-link">Contacto</Link>
+        </div>
       </div>
     </nav>
   );

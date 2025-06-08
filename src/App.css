@@ -1,21 +1,244 @@
-/* App.css */
 :root {
-  --azul-sagrado: #002d72;
-  --rojo-pasion: #d40032;
+  --azul: #002d72; /* Azul San Lorenzo */
+  --rojo: #d40032; /* Rojo San Lorenzo */
   --blanco: #ffffff;
-  --gris-oscuro: #333333;
   --gris-claro: #f5f5f5;
+  --gris-oscuro: #333333;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 body, html {
-  margin: 0;
-  padding: 0;
+  height: 100%;
   width: 100%;
-  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-#root {
-  min-height: 100vh;
+/* Estilo base para todas las páginas */
+.page-container {
+  width: 100vw;
+  min-height: calc(100vh - 72px); /* Resta altura del navbar */
+  background-color: var(--gris-claro);
   display: flex;
   flex-direction: column;
+}
+
+.page-title {
+  background-color: var(--azul);
+  color: var(--blanco);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 2.5rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.content-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.5rem;
+  color: var(--azul);
+}
+
+/* Estilos para Estadísticas */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background-color: var(--blanco);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-top: 4px solid var(--rojo);
+}
+
+.stat-card h3 {
+  color: var(--azul);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--gris-oscuro);
+}
+
+.extremos-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.extremo-card {
+  background-color: var(--blanco);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.extremo-card h3 {
+  color: var(--azul);
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--gris-claro);
+  padding-bottom: 10px;
+}
+
+.extremo-card ul {
+  list-style: none;
+}
+
+.extremo-card li {
+  padding: 5px 0;
+  color: var(--gris-oscuro);
+}
+
+/* Estilos para Contacto */
+.contacto-form {
+  background-color: var(--blanco);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--azul);
+  font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  background-color: var(--azul);
+  color: var(--blanco);
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: var(--rojo);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .extremos-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .content-container {
+    padding: 15px;
+  }
+  
+  .contacto-form {
+    padding: 20px;
+  }
+}
+/* Estilos para Home */
+.personas-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.persona-card {
+  width: 100%;
+  padding: 20px;
+  background-color: var(--blanco);
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--azul);
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-content h2 {
+  color: var(--azul);
+  font-size: 1.5rem;
+  flex: 1;
+}
+
+.card-content p {
+  color: var(--gris-oscuro);
+  flex: 1;
+  text-align: center;
+}
+
+.details-btn {
+  background-color: var(--azul);
+  color: var(--blanco);
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.details-btn:hover {
+  background-color: var(--rojo);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .card-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .card-content p {
+    text-align: left;
+    width: 100%;
+  }
+  
+  .details-btn {
+    align-self: flex-end;
+  }
 }

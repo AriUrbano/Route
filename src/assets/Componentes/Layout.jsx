@@ -2,18 +2,13 @@ import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import './Layout.css';
 
-const Layout = () => {
+export default function Layout() {
   return (
-    <div className="app-container">
+    <div className="app">
       <Navbar />
-      <main className="main-content">
-        <Outlet />
+      <main>
+        <Outlet /> 
       </main>
-      <footer className="app-footer">
-        <p>Route 2025</p>
-      </footer>
     </div>
   );
-};
-
-export default Layout;
+}

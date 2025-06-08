@@ -1,28 +1,23 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./assets/Componentes/Layout";
-import Home from "./assets/Componentes/Home";
-import PersonaDetalle from "./assets/Componentes/DetallePersona";
-import Estadisticas from "./assets/Componentes/Estadisticas";
-import Contacto from "./assets/Componentes/Contacto";
-import Error from "./assets/Componentes/Error";
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Estadisticas from './assets/Componentes/Estadisticas';
+import Home from './Pages/Home';
+import DetallePersona from './assets/Componentes/DetallePersona';
+import Contacto from './assets/Componentes/Contacto';
+import Navbar from './assets/Componentes/Navbar';
 
-
-const App = () => {
+function App() {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="home" element={<Home />} />
-          <Route path="persona/:id" element={<PersonaDetalle />} />
-          <Route path="estadisticas" element={<Estadisticas />} />
-          <Route path="contacto" element={<Contacto />} />
-        </Route>
-        <Route path="*" element={<Error />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/estadisticas" element={<Estadisticas />} />
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/persona/:id" element={<DetallePersona />} />
+        <Route path="*" element={<Error />} /> 
       </Routes>
     </BrowserRouter>
   );
-};
+}
 
 export default App;

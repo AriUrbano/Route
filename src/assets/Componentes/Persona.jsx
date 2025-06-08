@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
 import './Persona.css';
 
-const PersonaCard = ({ persona }) => {
+
+const Persona = ({ persona }) => {
   return (
     <div className="persona-card">
       <div className="persona-info">
@@ -15,4 +16,4 @@ const PersonaCard = ({ persona }) => {
   );
 };
 
-export default PersonaCard;
+export default Persona;

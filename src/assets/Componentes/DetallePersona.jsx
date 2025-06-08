@@ -1,6 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Informacion from '../../people.json';
 import './DetallePersona.css';
 
 const DetallePersona = () => {
@@ -9,30 +8,41 @@ const DetallePersona = () => {
   const [persona, setPersona] = useState(null);
 
   useEffect(() => {
-    const foundPersona = Informacion.find(p => p.id === parseInt(id));
-    if (!foundPersona) {
-      navigate('/404', { replace: true });
-      return;
-    }
-    setPersona(foundPersona);
-  }, [id, navigate]);
+    fetch('/people.json')
+      .then(response => response.json())
+      .then(data => {
+        const encontrada = data.find(p => p.id === Number(id));
+        setPersona(encontrada);
+      });
+  }, [id]);
 
-  if (!persona) return null;
-
-  const esMayorEdad = persona.edad >= 18;
+  if (!persona) return <div className="loading">Cargando...</div>;
 
   return (
-    <div className="persona-detalle-container">
-      <button onClick={() => navigate(-1)} className="btn-volver">
-        Volver
-      </button>
-      <div className="persona-detalle-card">
-        <h2>{persona.nombre} {persona.apellido}</h2>
-        <p><strong>Edad:</strong> {persona.edad} años</p>
-        <p><strong>Email:</strong> {persona.email}</p>
-        <p className={esMayorEdad ? 'mayor-edad' : 'menor-edad'}>
-          {esMayorEdad ? 'Mayor de edad' : 'Menor de edad'}
-        </p>
+    <div className="detalle-fullscreen">
+      <div className="detalle-content">
+        <h1 className="detalle-title">
+          <span className="nombre-azul">{persona.nombre} </span>
+          <span className="apellido-rojo">{persona.apellido}</span>
+        </h1>
+        
+        <div className="detalle-info">
+          <div className="info-item">
+            <span className="info-label">EDAD:</span>
+            <span className="info-value">{persona.edad} años</span>
+          </div>
+          <div className="info-item">
+            <span className="info-label">EMAIL:</span>
+            <span className="info-value">{persona.email}</span>
+          </div>
+        </div>
+        
+        <button 
+          onClick={() => navigate(-1)} 
+          className="volver-btn"
+        >
+          VOLVER AL LISTADO
+        </button>
       </div>
     </div>
   );

@@ -1,0 +1,37 @@
+.detalle-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--blanco);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid var(--rojo-pasion);
+}
+
+.detalle-container h2 {
+  color: var(--azul-sagrado);
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  margin-top: 0;
+}
+
+.detalle-container p {
+  font-size: 1.1rem;
+  margin: 1rem 0;
+}
+
+.btn-volver {
+  background-color: var(--azul-sagrado);
+  color: var(--blanco);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-volver:hover {
+  background-color: var(--rojo-pasion);
+}

@@ -1,0 +1,61 @@
+.contacto-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--blanco);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contacto-container h1 {
+  color: var(--azul-sagrado);
+  font-family: var(--fuente-titulos);
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0;
+}
+
+.contacto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: var(--azul-sagrado);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--azul-sagrado);
+  box-shadow: 0 0 0 2px rgba(0, 45, 114, 0.2);
+}
+
+.error-message {
+  color: var(--rojo-pasion);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.success-message {
+  background-color: var(--azul-sagrado);
+  color: var(--blanco);
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  margin-bottom: 1rem;
+}

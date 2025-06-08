@@ -1,24 +1,25 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import PersonaCard from './Persona';
+import Informacion from '../../people.json';
 import './Home.css';
-import Usuario from './Usuario';
 
-const Listado = ({usuarios}) => {
+const Home = () => {
+  const [personas, setPersonas] = useState([]);
+
+  useEffect(() => {
+    setPersonas(Informacion);
+  }, []);
+
   return (
-    <div>
-      <h2>Administra tus citas</h2>
-      {usuarios.map((cita, index) => (
-        <Cita 
-          key={index}
-          index={index}
-          nombre={usuarios.nombre}
-          apellido={usuarios.apellido}
-          edad={usuarios.edad}
-          email={usuarios.email}
-          mayor={usuarios.mayorEdad}
-        />
-      ))}
+    <div className="home-container">
+      <h1>Directorio de Personas</h1>
+      <div className="personas-grid">
+        {personas.map((persona) => (
+          <PersonaCard key={persona.id} persona={persona} />
+        ))}
+      </div>
     </div>
   );
 };
 
-export default Listado;
+export default Home;

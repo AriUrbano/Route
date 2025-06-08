@@ -1,0 +1,44 @@
+.persona-card {
+  background-color: var(--blanco);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border-top: 4px solid var(--rojo-pasion);
+}
+
+.persona-card:hover {
+  transform: translateY(-5px);
+}
+
+.persona-info {
+  padding: 1.5rem;
+}
+
+.persona-info h3 {
+  color: var(--azul-sagrado);
+  margin-top: 0;
+  font-family: var(--fuente-titulos);
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.persona-info p {
+  color: var(--gris-oscuro);
+  margin-bottom: 0;
+}
+
+.btn-ver-mas {
+  display: block;
+  text-align: center;
+  background-color: var(--azul-sagrado);
+  color: var(--blanco);
+  padding: 0.8rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.btn-ver-mas:hover {
+  background-color: var(--rojo-pasion);
+}

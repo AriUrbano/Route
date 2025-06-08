@@ -1,22 +1,19 @@
-import "./Layout.css" 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from "./assets/Componentes/Home"
-import React, { useState } from 'react';
-import Contacto from './assets/Componentes/Contacto';
-function Layout() 
-{
-    return(
-        <>
-        <BrowserRouter>
-        <Routes>
-         <Route path='/' element={<Layout/>}></Route>
-         <Route path='/Home' element= {<Home/>}></Route>
-         <Route path='/persona/:id' element = {<DetallePersona/>}></Route>
-         <Route path='/estadistica' element = {<Estadisticas/>}> </Route>
-         <Route path='/contacto' element = {<Contacto/>}> </Route>
-         </Routes>
-        </BrowserRouter>
-       </>
-    );
-}
+import { Outlet } from 'react-router-dom';
+import Navbar from './Navbar';
+import './Layout.css';
+
+const Layout = () => {
+  return (
+    <div className="app-container">
+      <Navbar />
+      <main className="main-content">
+        <Outlet />
+      </main>
+      <footer className="app-footer">
+        <p>Route 2025</p>
+      </footer>
+    </div>
+  );
+};
+
 export default Layout;

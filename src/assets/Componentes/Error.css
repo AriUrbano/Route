@@ -1,0 +1,17 @@
+.not-found-container {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.not-found-container h1 {
+  color: var(--rojo-pasion);
+  font-family: var(--fuente-titulos);
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.not-found-container p {
+  font-size: 1.5rem;
+  color: var(--gris-oscuro);
+  margin-bottom: 2rem;
+}

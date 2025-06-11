@@ -16,8 +16,6 @@ const DetallePersona = () => {
       });
   }, [id]);
 
-  if (!persona) return <div className="loading">Cargando...</div>;
-
   return (
     <div className="detalle-fullscreen">
       <div className="detalle-content">

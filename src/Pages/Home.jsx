@@ -4,18 +4,15 @@ import '../App.css';
 
 const Home = () => {
   const [personas, setPersonas] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/people.json')
       .then(response => response.json())
       .then(data => {
         setPersonas(data);
-        setLoading(false);
       });
   }, []);
 
-  if (loading) return <div className="loading">Cargando...</div>;
 
   return (
     <div className="page-container">

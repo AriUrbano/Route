@@ -9,7 +9,6 @@ const Estadisticas = () => {
     mayorEdad: [],
     menorEdad: []
   });
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('/people.json')
@@ -28,11 +27,9 @@ const Estadisticas = () => {
           mayorEdad: data.filter(p => p.edad === maxEdad),
           menorEdad: data.filter(p => p.edad === minEdad)
         });
-        setLoading(false);
       });
   }, []);
 
-  if (loading) return <div className="loading">Cargando estadísticas...</div>;
 
   return (
     <div className="page-container">

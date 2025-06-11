@@ -45,7 +45,6 @@ const Contacto = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      // Aquí iría la lógica para enviar los datos
       console.log('Formulario enviado:', formData);
       setIsSubmitted(true);
       setFormData({

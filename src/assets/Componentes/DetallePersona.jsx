@@ -1,20 +1,44 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './DetallePersona.css';
+import Error from './Error'; 
+
 
 const DetallePersona = () => {
   const { id } = useParams();
   const Navegacion = useNavigate();
   const [persona, setPersona] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
+    setError(null);
+    
     fetch('/people.json')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('No se pudo cargar la información');
+        }
+        return response.json();
+      })
       .then(data => {
         const encontrada = data.find(p => p.id === Number(id));
+        if (!encontrada) {
+          throw new Error('Persona no encontrada');
+        }
         setPersona(encontrada);
-      });
+      })
+      .catch(err => {
+        setError(err.message);
+      })
+
   }, [id]);
+  if (error) {
+    return <Error />; 
+  }
+
+  if (!persona) {
+    return <Error />; 
+  }
 
   return (
     <div className="detalle-fullscreen">

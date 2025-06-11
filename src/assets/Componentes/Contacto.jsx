@@ -2,81 +2,81 @@ import { useState } from 'react';
 import './Contacto.css';
 
 const Contacto = () => {
-  const [formData, setFormData] = useState({
+  const [Data, setFormularioData] = useState({
     nombre: '',
     apellido: '',
     email: '',
     edad: '',
   });
-  const [errors, setErrors] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState({});
+  const [Mandar, setMandado] = useState(false);
 
-  const handleChange = (e) => {
+  const ManejarCambios = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormularioData({
+      ...Data,
       [name]: value,
     });
   };
 
   const validate = () => {
-    const newErrors = {};
+    const ErroresNuevo = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!formData.nombre.trim()) newErrors.nombre = 'Nombre es requerido';
-    if (!formData.apellido.trim()) newErrors.apellido = 'Apellido es requerido';
+    if (!Data.nombre.trim()) ErroresNuevo.nombre = 'Nombre es requerido';
+    if (!Data.apellido.trim()) ErroresNuevo.apellido = 'Apellido es requerido';
     
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email es requerido';
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = 'Email no válido';
+    if (!Data.email.trim()) {
+      ErroresNuevo.email = 'Email es requerido';
+    } else if (!emailRegex.test(Data.email)) {
+      ErroresNuevo.email = 'Email no válido';
     }
 
-    if (!formData.edad) {
-      newErrors.edad = 'Edad es requerida';
-    } else if (isNaN(formData.edad) || formData.edad <= 0) {
-      newErrors.edad = 'Edad debe ser un número positivo';
+    if (!Data.edad) {
+      ErroresNuevo.edad = 'Edad es requerida';
+    } else if (isNaN(Data.edad) || Data.edad <= 0) {
+      ErroresNuevo.edad = 'Edad debe ser un número positivo';
     }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setError(ErroresNuevo);
+    return Object.keys(ErroresNuevo).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const ManejarMandado = (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log('Formulario enviado:', formData);
-      setIsSubmitted(true);
-      setFormData({
+      console.log('Formulario enviado:', Data);
+      setMandado(true);
+      setFormularioData({
         nombre: '',
         apellido: '',
         email: '',
         edad: '',
       });
-      setTimeout(() => setIsSubmitted(false), 3000);
+      setTimeout(() => setMandado(false), 3000);
     }
   };
 
   return (
     <div className="contacto-container">
       <h1>Contacto</h1>
-      {isSubmitted && (
+      {Mandar && (
         <div className="success-message">
           ¡Formulario enviado con éxito!
         </div>
       )}
-      <form onSubmit={handleSubmit} className="contacto-form">
+      <form onSubmit={ManejarMandado} className="contacto-form">
         <div className="form-group">
           <label htmlFor="nombre">Nombre</label>
           <input
             type="text"
             id="nombre"
             name="nombre"
-            value={formData.nombre}
-            onChange={handleChange}
-            className={errors.nombre ? 'error' : ''}
+            value={Data.nombre}
+            onChange={ManejarCambios}
+            className={error.nombre ? 'error' : ''}
           />
-          {errors.nombre && <span className="error-message">{errors.nombre}</span>}
+          {error.nombre && <span className="error-message">{error.nombre}</span>}
         </div>
         <div className="form-group">
           <label htmlFor="apellido">Apellido</label>
@@ -84,11 +84,11 @@ const Contacto = () => {
             type="text"
             id="apellido"
             name="apellido"
-            value={formData.apellido}
-            onChange={handleChange}
-            className={errors.apellido ? 'error' : ''}
+            value={Data.apellido}
+            onChange={ManejarCambios}
+            className={error.apellido ? 'error' : ''}
           />
-          {errors.apellido && <span className="error-message">{errors.apellido}</span>}
+          {error.apellido && <span className="error-message">{error.apellido}</span>}
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
@@ -96,11 +96,11 @@ const Contacto = () => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className={errors.email ? 'error' : ''}
+            value={Data.email}
+            onChange={ManejarCambios}
+            className={error.email ? 'error' : ''}
           />
-          {errors.email && <span className="error-message">{errors.email}</span>}
+          {error.email && <span className="error-message">{error.email}</span>}
         </div>
         <div className="form-group">
           <label htmlFor="edad">Edad</label>
@@ -108,11 +108,11 @@ const Contacto = () => {
             type="number"
             id="edad"
             name="edad"
-            value={formData.edad}
-            onChange={handleChange}
-            className={errors.edad ? 'error' : ''}
+            value={Data.edad}
+            onChange={ManejarCambios}
+            className={error.edad ? 'error' : ''}
           />
-          {errors.edad && <span className="error-message">{errors.edad}</span>}
+          {error.edad && <span className="error-message">{error.edad}</span>}
         </div>
         <button type="submit" className="btn-enviar">
           Enviar

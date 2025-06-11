@@ -4,7 +4,7 @@ import './DetallePersona.css';
 
 const DetallePersona = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
+  const Navegacion = useNavigate();
   const [persona, setPersona] = useState(null);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const DetallePersona = () => {
         </div>
         
         <button 
-          onClick={() => navigate(-1)} 
+          onClick={() => Navegacion(-1)} 
           className="volver-btn"
         >
           VOLVER AL LISTADO

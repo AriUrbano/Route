@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import '../../App.css';
 
 const Estadisticas = () => {
-  const [stats, setStats] = useState({
+  const [estadisticas, setEstadisticas] = useState({
     total: 0,
     mayores35: 0,
     promedio: 0,
@@ -20,7 +20,7 @@ const Estadisticas = () => {
         const maxEdad = Math.max(...edades);
         const minEdad = Math.min(...edades);
         
-        setStats({
+        setEstadisticas({
           total,
           mayores35,
           promedio: (edades.reduce((a, b) => a + b, 0) / total).toFixed(2),
@@ -39,31 +39,31 @@ const Estadisticas = () => {
         <div className="stats-grid">
           <div className="stat-card">
             <h3>Total de Personas</h3>
-            <p>{stats.total}</p>
+            <p>{estadisticas.total}</p>
           </div>
           <div className="stat-card">
             <h3>Mayores de 35 años</h3>
-            <p>{stats.mayores35}</p>
+            <p>{estadisticas.mayores35}</p>
           </div>
           <div className="stat-card">
             <h3>Promedio de Edad</h3>
-            <p>{stats.promedio} años</p>
+            <p>{estadisticas.promedio} años</p>
           </div>
         </div>
 
         <div className="extremos-container">
           <div className="extremo-card">
-            <h3>Persona(s) de mayor edad ({stats.mayorEdad[0]?.edad} años)</h3>
+            <h3>Persona(s) de mayor edad ({estadisticas.mayorEdad[0]?.edad} años)</h3>
             <ul>
-              {stats.mayorEdad.map(p => (
+              {estadisticas.mayorEdad.map(p => (
                 <li key={p.id}>{p.nombre} {p.apellido}</li>
               ))}
             </ul>
           </div>
           <div className="extremo-card">
-            <h3>Persona(s) de menor edad ({stats.menorEdad[0]?.edad} años)</h3>
+            <h3>Persona(s) de menor edad ({estadisticas.menorEdad[0]?.edad} años)</h3>
             <ul>
-              {stats.menorEdad.map(p => (
+              {estadisticas.menorEdad.map(p => (
                 <li key={p.id}>{p.nombre} {p.apellido}</li>
               ))}
             </ul>

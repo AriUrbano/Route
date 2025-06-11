@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import DetallePersona from './assets/Componentes/DetallePersona';
 import Contacto from './assets/Componentes/Contacto';
 import Navbar from './assets/Componentes/Navbar';
+import Error from './assets/Componentes/Error'
 
 function App() {
   return (
